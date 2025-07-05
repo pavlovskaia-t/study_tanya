@@ -24,24 +24,23 @@ rolling in wealth."""
 """ Дані у строці adwentures_of_tom_sawer розбиті випадковим чином, через помилку.
 треба замінити кінець абзацу на пробіл .replace("\n", " ")"""
 
-new_text1 = adwentures_of_tom_sawer.replace("\n"," ")
-print(new_text1)
+adwentures_of_tom_sawer = adwentures_of_tom_sawer.replace("\n"," ")
+print(adwentures_of_tom_sawer)
 print()
 
 # task 02 ==
 """ Замініть .... на пробіл
 """
-new_text2 = new_text1.replace("...."," ")
-print(new_text2)
+adwentures_of_tom_sawer = adwentures_of_tom_sawer.replace("...."," ")
+print(adwentures_of_tom_sawer)
 print()
 
 # task 03 ==
 """ Зробіть так, щоб у тексті було не більше одного пробілу між словами.
 """
-print(new_text2.count("   "))
-new_text3 = new_text2.replace("   "," ")
-print(new_text3)
-print(new_text3.count("   "))
+adwentures_of_tom_sawer = adwentures_of_tom_sawer.split()
+adwentures_of_tom_sawer = " ".join(adwentures_of_tom_sawer)
+print(adwentures_of_tom_sawer)
 print()
 
 # task 04
@@ -49,6 +48,7 @@ print()
 """
 
 print(adwentures_of_tom_sawer.count('h'))
+print()
 
 # task 05
 """ Виведіть, скільки слів у тексті починається з Великої літери?   
@@ -56,24 +56,25 @@ print(adwentures_of_tom_sawer.count('h'))
 s = adwentures_of_tom_sawer.split()
 count = 0
 for i in s:
-    print(i)
-    count += 1
+   if i == i.title():
+       count +=1
 print(count)
-
 print()
 
 # task 06
 """ Виведіть позицію, на якій слово Tom зустрічається вдруге
 """
-
+first = adwentures_of_tom_sawer.find("Tom")
+second = adwentures_of_tom_sawer.find("Tom", first + 1)
+print(second)
+print()
 
 # task 07
 """ Розділіть змінну adwentures_of_tom_sawer по кінцю речення.
 Збережіть результат у змінній adwentures_of_tom_sawer_sentences
 """
-adwentures_of_tom_sawer_sentences = new_text3.split(".")
-print(adwentures_of_tom_sawer_sentences)
-print()
+adwentures_of_tom_sawer_sentences = adwentures_of_tom_sawer.split(". ")
+
 
 # task 08
 """ Виведіть четверте речення з adwentures_of_tom_sawer_sentences.
@@ -85,9 +86,13 @@ print()
 # task 09
 """ Перевірте чи починається якесь речення з "By the time".
 """
-print(adwentures_of_tom_sawer.startswith("By the time"))
+for i in adwentures_of_tom_sawer_sentences:
+    print(i.startswith("By the time"))
 print()
 
 # task 10
 """ Виведіть кількість слів останнього речення з adwentures_of_tom_sawer_sentences.
 """
+last = adwentures_of_tom_sawer_sentences[-1]
+last = last.split()
+print(len(last))
